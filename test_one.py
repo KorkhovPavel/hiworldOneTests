@@ -61,3 +61,14 @@ def test_title_pages(page):
         if title == '':
             title = title.replace('', 'hiWorld.one')
         expect(page).to_have_title(title)
+
+
+def test_link_logo(page):
+    """
+    Testing link transitions logo.
+    On pages(links) from sitemap.
+    """
+    for link in get_sitemap_links():
+        page.goto(link)
+        page.locator(".logo").filter(has_text='.hiWorld').click()
+        expect(page).to_have_url('https://hiworld.one/')
