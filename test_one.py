@@ -72,3 +72,13 @@ def test_link_logo(page):
         page.goto(link)
         page.locator(".logo").filter(has_text='.hiWorld').click()
         expect(page).to_have_url('https://hiworld.one/')
+
+
+def test_page_404(page):
+    """
+    Check text 'Page not found' in page 404
+    """
+    page.goto('https://hiworld.one/njkhf834893')
+    expect(page).to_have_url('https://hiworld.one/njkhf834893')
+    loc404 = page.locator('.page_404')
+    expect(loc404).to_have_text('Page not found')
