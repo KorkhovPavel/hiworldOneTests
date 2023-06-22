@@ -42,11 +42,8 @@ def get_title_page(link):
     :param link: link page
     :return: title
     """
-    title_replace = {'Postgresql': 'PostgreSQL', 'Github': 'GitHub'}
-    title = link.split('/')[-1].replace('-', ' ').title()
-    for k, i in title_replace.items():
-        if k in title:
-            title = title.replace(k, i)
+
+    title = link.split('/')[-1].replace('-', ' ')
     return title
 
 
@@ -82,3 +79,5 @@ def test_page_404(page):
     expect(page).to_have_url('https://hiworld.one/njkhf834893')
     loc404 = page.locator('.page_404')
     expect(loc404).to_have_text('Page not found')
+
+
