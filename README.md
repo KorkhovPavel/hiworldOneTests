@@ -5,4 +5,4 @@
 3. Check title to pages 
 4. Testing link transitions logo
 5. Testing page 404
- 
+6. Testing notification cookie 

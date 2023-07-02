@@ -81,3 +81,11 @@ def test_page_404(page):
     expect(loc404).to_have_text('Page not found')
 
 
+def test_notification_cookie(page):
+    """
+    Check text on cookie-btn
+    """
+    page.goto('https://hiworld.one/')
+    expect(page).to_have_url('https://hiworld.one/')
+    loc404 = page.locator('.cookie-btn')
+    expect(loc404).to_have_text('I agree')
